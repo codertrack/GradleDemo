@@ -1,0 +1,9 @@
+1.gradle是什么？
+
+gradle是一个构建系统 是基于groovy语言的一个DSL(特定领域内)语言
+
+2.使用gradle构建项目的文件讲解
+
+settings.gradle 这个文件一般存放我们的参与编译的模块
+app/build.gradle 这个里面配置Android的编译信息
+project/build.gradle 这里面主要配置需要的插件包

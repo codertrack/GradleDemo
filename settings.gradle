@@ -1,0 +1,2 @@
+include ':app', ':demolib'
+println "我是settings.gradle 第一个被执行,我相当于整个项目的配置文件"

@@ -1,0 +1,54 @@
+//apply plugin: 'com.android.application' 整个插件是属于com.android.tools.build:gradle:2.2.0整个插件包
+//中的
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "session.gradledemo"
+        minSdkVersion 15 //生成的apk最低兼容的系统版本号
+        targetSdkVersion 25 //生成的apk最高兼容的系统版本号
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        baidu {
+            minSdkVersion 15
+            applicationId 'com.rensheng.dianfeng'
+            targetSdkVersion 23
+            versionCode 1
+            versionName '1.1'
+            versionNameSuffix 'baidu'
+        }
+        yingyongbao {
+            targetSdkVersion 23
+            applicationId 'com.yingyongbao.dianfeng'
+            versionNameSuffix 'yyb'
+        }
+        wandoujia {
+            applicationId 'com.wandoujia.dianfeng'
+            versionNameSuffix 'wandoujia'
+        }
+    }
+}
+
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    testCompile 'junit:junit:4.12'
+    //添加eventbus
+}
